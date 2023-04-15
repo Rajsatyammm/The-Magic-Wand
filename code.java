@@ -66,6 +66,46 @@ For the third query, queries[2] = 1, you can decrease the elements at indices 4,
 */
 
 
+Aproach 1 : 
+
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+   public static void main(String args[] ) throws Exception {
+       Scanner sc = new Scanner(System.in);
+       int N = sc.nextInt();
+       int M = sc.nextInt();
+
+       int arr[] = new int[N];
+       for(int i=0; i<N; i++) {
+           arr[i] = sc.nextInt();
+       }
+       int queries[] = new int[M];
+       for(int i=0; i<M; i++)  {
+           queries[i] = sc.nextInt();
+       }
+       int cost[] = new int[M];
+
+       for(int i=0; i<M; i++) {
+           int totalcost = 0;
+           for(int j=0; j<N; j++) {
+               int diff = Math.abs(arr[j] - queries[i]);
+               totalcost += diff;
+           }
+           cost[i] = totalcost;
+       }
+       for(int i=0; i<M; i++) {
+            System.out.print(cost[i] + " ");
+       }
+
+    }
+}
+
+
+
+Approach 2: 
+
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
